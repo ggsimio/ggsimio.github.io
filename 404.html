@@ -3,7 +3,12 @@
   <head>
     <meta charset="utf-8">
     <script type="text/javascript">
-      window.location.replace(window.location.origin + '/#' + window.location.pathname);
+      let href = window.location.origin;
+
+      if(window.location.pathname)
+        href += '/#' + window.location.pathname;
+
+      window.location.replace(href);
     </script>
   </head>
   <body>
