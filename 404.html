@@ -5,8 +5,15 @@
     <script type="text/javascript">
       let href = window.location.origin;
 
-      if(window.location.pathname)
-        href += '/#' + window.location.pathname;
+      try {
+        if(window.location.pathname) {
+          let items = window.location.pathname.split('#');
+          href += '/#' + items[items.length - 1];
+        }
+      }
+      catch(e) {
+        href = window.location.origin
+      }
 
       window.location.replace(href);
     </script>
